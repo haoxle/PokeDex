@@ -20,9 +20,17 @@ pokemonArray.forEach((pokemon) => {
 const findPokemon = (e) => {
   e.preventDefault();
   const searchInput = document.querySelector("#query").value;
-  const filteredArr = pokemonArray.filter((pokemon) =>
-    pokemon.types.includes(`${searchInput}`)
-  );
+  const filteredArr = pokemonArray.filter((pokemon) => {
+    if (
+      pokemon.types.includes(`${searchInput}`) ||
+      pokemon.name == searchInput ||
+      pokemon.id === Number(searchInput)
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  });
   container.innerHTML = "";
 
   filteredArr.forEach((pokemon) => {
