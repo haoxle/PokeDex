@@ -63,7 +63,4 @@ const findPokemon = (e) => {
 };
 enterStuff.addEventListener("submit", findPokemon);
 
-// next step to refractor
-
-//you can search for ID, name and type
-//if you have nothing and search it will give everything back
+// add drop down for types and id number
