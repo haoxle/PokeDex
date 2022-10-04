@@ -45,5 +45,20 @@ const findPokemon = (e) => {
       </div>
       </div>`;
   });
+
+  if (searchInput === "") {
+    pokemonArray.forEach((pokemon) => {
+      const separateTypes = pokemon.types.join(" & ");
+      const capitalName = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
+      container.innerHTML += `<div class="card">
+        <img class="card__image"src="${pokemon.sprite}" alt="${pokemon.name}">
+        <div class="card__content">
+        <h1 class="card__heading">${capitalName}
+        </h1>
+        <p class="card__text">${capitalName} (#${pokemon.id}) is a ${separateTypes} type pokemon.</p>
+        </div>
+        </div>`;
+    });
+  }
 };
 enterStuff.addEventListener("submit", findPokemon);
